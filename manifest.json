@@ -1,0 +1,53 @@
+{
+
+  "manifest_version": 2,
+  "name": "Interface",
+  "version": "1.0",
+
+  "description": "user interface for CA Client",
+  "icons": {
+    "48": "icons/shield-48.ico"
+  },
+
+  "permissions": [
+    "storage",
+    "notifications",
+    "webRequestBlocking",
+    "webRequest",
+    "<all_urls>",
+    "activeTab"
+  ],
+
+  "content_scripts": [
+    {
+      "matches": ["*://*.hitbank.online/*","*://*.172.20.38.160/*"],
+      "js": ["content_scripts/cryptojs/core.js",
+        "content_scripts/cryptojs/md5.js",
+        "content_scripts/cryptojs/sha1.js",
+        "content_scripts/cryptojs/hmac.js",
+        "content_scripts/cryptojs/evpkdf.js",
+        "content_scripts/cryptojs/cipher-core.js",
+        "content_scripts/cryptojs/mode-ecb.js",
+        "content_scripts/cryptojs/aes.js",
+        "content_scripts/js/jsrsasign-all-min.js",
+        "content_scripts/cycle.js",
+        "content_scripts/check.js"]
+    }
+  ],
+
+  "browser_action": {
+    "default_icon": "icons/shield-32.ico",
+    "default_title": "SecurityComponent",
+    "default_popup": "popup/register.html"
+  },
+
+  "web_accessible_resources": [
+    "beasts/frog.jpg",
+    "beasts/turtle.jpg",
+    "beasts/snake.jpg"
+  ],
+  "background":{
+    "scripts": ["require.js","prng4.js","background.js"]
+  }
+
+}
